@@ -5,11 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Signup</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
 </head>
 
 <body>
     <h1>Signup</h1>
-    <form>
+    <form autocomplete="off">
         <div>
             <label for="name">Name</label>
             <input type="text" id="name" name="name">
@@ -20,8 +21,14 @@
         </div>
         <div>
             <label for="password">Password</label>
-            <input type="password" id="password" name="password">
+            <input type="password" id="password" name="password" autocomplete="new-password">
         </div>
+        <div>
+            <label for="password">Repeat password</label>
+            <input type="password" id="password_confirmation" name="password_confirmation" autocomplete="new-password">
+        </div>
+
+        <button>Sign Up</button>
 
     </form>
 </body>
