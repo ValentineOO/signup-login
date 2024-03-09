@@ -19,4 +19,11 @@ if (!preg_match("/[0-9]/", $_POST["password"])) {
     die("Password must contain at least one number");
 }
 
+if ($_POST["password"] !== $_POST["password_confirmation"]) {
+    die("Password and password confirmation must match");
+}
+
+$password_hash = password_hash($_POST["password"], PASSWORD_DEFAULT);
+
 print_r($_POST);
+var_dump($password_hash);
