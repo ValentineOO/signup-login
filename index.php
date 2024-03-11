@@ -20,6 +20,7 @@ session_start();
     ?>
         <p>You are now logged in.</p>
 
+        <p><a href="logout.php">Log out</a></p>
     <?php else : ?>
 
         <p><a href="login.php">Log in</a> or <a href="signup.html">sign up</a></p>
