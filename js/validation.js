@@ -13,6 +13,18 @@ validation
     {
       rule: "email",
     },
+    {
+      validator: (value) => () => {
+        return fetch("validate-email.php?email=" + encodeURIComponent(value))
+          .then(function (response) {
+            return response.json();
+          })
+          .then(function (json) {
+            return json.available;
+          });
+      },
+      errorMessage: "Email already exists",
+    },
   ])
   .addField("#password", [
     {
@@ -31,5 +43,5 @@ validation
     },
   ])
   .onSuccess((event) => {
-    document.getElementById("signup").onsubmit();
+    document.getElementById("signup").submit();
   });
