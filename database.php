@@ -1,15 +1,14 @@
 <?php
+require __DIR__ . "/vendor/autoload.php";
 
-$host = "localhost";
-$dbname = "login_db";
-$username = "root";
-$password = "";
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
 
 $mysqli = new mysqli(
-    hostname: $host,
-    username: $username,
-    password: $password,
-    database: $dbname
+    $_ENV["DATABASE_HOSTNAME"],
+    $_ENV["DATABASE_USERNAME"],
+    $_ENV["DATABASE_PASSWORD"],
+    $_ENV["DATABASE_NAME"]
 );
 
 if ($mysqli->connect_errno) {
